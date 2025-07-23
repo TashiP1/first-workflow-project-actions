@@ -1,0 +1,18 @@
+name: "Deploy to AWS"
+description: "custom action that will deploy the static website to AWS"
+inputs:
+  bucket:
+    description: "the Aws Bucket name"
+    required: true
+  bucket-region: 
+    description: "The Region of the AWS Bucket"
+    required: false
+    default: 'us-east-1'
+  dist-folder:
+    description: "website files folder"
+    required: true
+
+runs:
+  using: node20
+  main: main.js
+  
