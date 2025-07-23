@@ -12,6 +12,10 @@ inputs:
     description: "website files folder"
     required: true
 
+outputs:
+  websiteUrl:
+    description: 'link to the website Url'
+
 runs:
   using: node20
   main: main.js

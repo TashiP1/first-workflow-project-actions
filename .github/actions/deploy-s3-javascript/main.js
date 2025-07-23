@@ -8,7 +8,10 @@ function run(){
     const dist_folder = core.getInput('dist-folder', {required: true });
 
     const s3Uri = `s3://${bucket}`;
-    exec.exec(`aws s3 sync ${dist_folder} ${s3Uri} --region ${bucket_region}`)
-}
+    exec.exec(`aws s3 sync ${dist_folder} ${s3Uri} --region ${bucket_region}`);
+
+    const websiteUrl = `http://${bucket}.s3-website-${bucket_region}.amazonaws.com`;
+    core.setOutput(websiteUrl);
+ }
 
 run();
